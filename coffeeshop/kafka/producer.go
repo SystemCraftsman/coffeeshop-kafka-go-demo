@@ -14,12 +14,12 @@ type Producer struct {
 }
 
 func NewProducer(cfg config.Config) (*Producer, error) {
-	writer := kafka.NewWriter(kafka.WriterConfig{
-		Brokers:      []string{cfg.KafkaBootstrapServers},
+	writer := &kafka.Writer{
+		Addr:         kafka.TCP(cfg.KafkaBootstrapServers),
 		Topic:        cfg.OrdersTopic,
 		Balancer:     &kafka.LeastBytes{},
 		WriteTimeout: 10 * time.Second,
-	})
+	}
 	return &Producer{Writer: writer}, nil
 }
 
