@@ -1,10 +1,10 @@
 package api
 
 import (
-    "coffeeshop-kafka-go-demo/coffeeshop/kafka"
-    "coffeeshop-kafka-go-demo/coffeeshop/model"
-    "github.com/gin-gonic/gin"
-    "net/http"
+	"coffeeshop-kafka-go-demo/coffeeshop/kafka"
+	"coffeeshop-kafka-go-demo/coffeeshop/model"
+	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 type OrderHandler struct {

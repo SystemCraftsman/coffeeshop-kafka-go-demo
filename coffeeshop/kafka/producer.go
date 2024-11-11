@@ -1,8 +1,8 @@
 package kafka
 
 import (
+	"coffeeshop-kafka-go-demo/coffeeshop/config"
 	"coffeeshop-kafka-go-demo/coffeeshop/model"
-	"coffeeshop-kafka-go-demo/config"
 	"context"
 	"encoding/json"
 	"github.com/segmentio/kafka-go"
@@ -16,7 +16,7 @@ type Producer struct {
 func NewProducer(cfg config.Config) (*Producer, error) {
 	writer := kafka.NewWriter(kafka.WriterConfig{
 		Brokers:      []string{cfg.KafkaBootstrapServers},
-		Topic:        cfg.CoffeeshopTopic,
+		Topic:        cfg.OrdersTopic,
 		Balancer:     &kafka.LeastBytes{},
 		WriteTimeout: 10 * time.Second,
 	})
